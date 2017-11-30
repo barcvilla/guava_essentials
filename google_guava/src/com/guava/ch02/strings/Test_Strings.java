@@ -85,6 +85,7 @@ public class Test_Strings
     {
         final String operation = "Strings.padStart(String, int, char)";
         printHeader(operation);
+        /* Do NOT call Strings.padStart(String,int,char) on a null String */
         printOriginalAndResult("Dusting", Strings.padStart("Dusting", 10, '_'), operation);
         printOriginalAndResult("", Strings.padStart("", 10, '_'), operation);
     }
@@ -92,8 +93,23 @@ public class Test_Strings
     // 4. padEnd
     public static void demoPadEnd()
     {
-        final String operation = "Strings.padEnd()";
+        final String operation = "Strings.padEnd(String, int, char)";
+        printHeader(operation);
+        /* Do NOT call Strings.padEnd(String,int,char) on a null String */
+        printOriginalAndResult("Dusting", Strings.padEnd("Dusting", 10, '_'), operation);
+        printOriginalAndResult("", Strings.padEnd("", 10, '_'), operation);
     }
+
+    // 5. repeat
+    public static void demorepeat()
+    {
+        final String operation = "Strings.repeat(String, int)";
+        printHeader(operation);
+        /* Do NOT call Strings.repeat(String,int) on a null String */
+        printOriginalAndResult("Dustin", Strings.repeat("Dusting", 3), operation);
+        printOriginalAndResult("", Strings.repeat("", 3), operation);
+    }
+
 
     public static void main(String[] args)
     {
@@ -101,5 +117,7 @@ public class Test_Strings
         demoEmptyToNull();
         demoNullToEmpty();
         demoPadStart();
+        demoPadEnd();
+        demorepeat();
     }
 }
