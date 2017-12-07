@@ -44,11 +44,30 @@ public class Test_CharMatcher
         String header = "Remove Upper Case and Lower Case";
         headerText(header);
         String cadena = "THIS IS UPPER CASE story of my code by www.putracode.com";
+        String upper = CharMatcher.javaUpperCase().removeFrom(cadena);
+        String lower = CharMatcher.javaLowerCase().removeFrom(cadena);
+
+        System.out.println("Remove uppder case from text: " + cadena + " : " + upper);
+        System.out.println("Remove lower case from text: " + cadena + " : " + lower);
+    }
+
+    public static void demoCountingMatchingChar()
+    {
+        String header = "Count Matching Char";
+        headerText(header);
+        String cadena = "www.putracode.com awesome 123456";
+        int countNumber = CharMatcher.digit().countIn(cadena);
+        int countLetter = CharMatcher.javaLetter().is('w').countIn(cadena);
+
+        System.out.println("Counting digits in cadena: " + cadena + " : " + countNumber);
+        System.out.println("Counting letter w in cadena: " + cadena + " : " + countLetter);
     }
 
     public static void main(String[] args)
     {
         demoGetDigitAndTextFromString();
         demoRemoveTabs();
+        demoRemoveUpperAndLowerCase();
+        demoCountingMatchingChar();
     }
 }
