@@ -35,8 +35,15 @@ public class Test_CharMatcher
         String header = "Remove whitespace from a string";
         headerText(header);
         String cadena = "String     with        spaces and         tabs";
-        String text = CharMatcher.whitespace().collapseFrom(cadena, ' ');
+        String text = CharMatcher.whitespace().trimAndCollapseFrom(cadena, ' ');
         System.out.println("Get text without tabs from: " + cadena + " : " + text);
+    }
+
+    public static void demoRemoveUpperAndLowerCase()
+    {
+        String header = "Remove Upper Case and Lower Case";
+        headerText(header);
+        String cadena = "THIS IS UPPER CASE story of my code by www.putracode.com";
     }
 
     public static void main(String[] args)
