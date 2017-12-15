@@ -63,11 +63,70 @@ public class Test_CharMatcher
         System.out.println("Counting letter w in cadena: " + cadena + " : " + countLetter);
     }
 
+    public static void demoTrimLeadingSpaces()
+    {
+        String header = "Trim Leading Spaces";
+        headerText(header);
+        String leftTrimmedString = CharMatcher.whitespace().trimLeadingFrom("    Some String    "); //get "some string     "
+        System.out.println("Trim leading spaced: " + leftTrimmedString);
+    }
+
+    public static void demoTrimTrailingSpaces()
+    {
+        String header = "Trim Trainling Spaces";
+        headerText(header);
+        String rightTrimmedString = CharMatcher.whitespace().trimTrailingFrom("     some string   "); // get "    some string"
+        System.out.println("Trim trailing spaces: " + rightTrimmedString);
+    }
+
+    public static void demoTrillAllSpaces()
+    {
+        String header = "Trim all Spaces";
+        headerText(header);
+        String trimmedString = CharMatcher.whitespace().trimFrom("   some string    "); // get "some string"
+        System.out.println("Trimmed al space: " + trimmedString);
+    }
+
+    public static void demoRemoveAllAsterisk()
+    {
+        String header = "Remove all Asterisk in a String";
+        headerText(header);
+        String stringWithoutAsterisk = CharMatcher.is('*')
+                .removeFrom("** this is a comment ** will be ignored *");
+        System.out.println("String with asterik: ** this is a comment ** will be ignored *");
+        System.out.println("String without asterisk: " + stringWithoutAsterisk);
+    }
+
+    public static void demoObtainDigitsFromString()
+    {
+        String header = "Obtain Digits from String";
+        headerText(header);
+        String telephone = CharMatcher.inRange('0','9').retainFrom("$5454.20");
+        System.out.println("The string is: $5454.20");
+        System.out.println("Only digits: " + telephone);
+    }
+
+    public static void demoCollapseWhiteSpace()
+    {
+        String header = "Collapse whitespace to Dash";
+        headerText(header);
+        String address = "505 Williams Street";
+        String addressWithDash = CharMatcher.whitespace().collapseFrom(address, '-');
+        System.out.println(address);
+        System.out.println(addressWithDash);
+    }
+
     public static void main(String[] args)
     {
         demoGetDigitAndTextFromString();
         demoRemoveTabs();
         demoRemoveUpperAndLowerCase();
         demoCountingMatchingChar();
+        demoTrimLeadingSpaces();
+        demoTrimTrailingSpaces();
+        demoTrillAllSpaces();
+        demoRemoveAllAsterisk();
+        demoObtainDigitsFromString();
+        demoCollapseWhiteSpace();
     }
 }
