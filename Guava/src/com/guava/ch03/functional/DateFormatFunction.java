@@ -19,7 +19,6 @@ public class DateFormatFunction implements Function<Date, String>
     @Override
     public String apply(Date input)
     {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-        return dateFormat.format(input);
+        return new SimpleDateFormat("dd/mm/yyyy").format(input);
     }
 }
