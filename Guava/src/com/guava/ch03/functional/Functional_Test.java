@@ -5,6 +5,8 @@
  */
 package com.guava.ch03.functional;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
 
 /**
@@ -16,7 +18,7 @@ public class Functional_Test
     public static void DateFormatDemo()
     {
         DateFormatFunction dff = new DateFormatFunction();
-        System.out.println(dff.apply(new Date(25/01/2018)));
+        System.out.println(dff.apply(new Date(2018/01/15)));
     }
     
     public static void main(String[] args) {

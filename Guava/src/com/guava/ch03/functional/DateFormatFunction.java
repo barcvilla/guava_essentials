@@ -7,6 +7,7 @@ package com.guava.ch03.functional;
 
 import com.google.common.base.Function;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -19,6 +20,6 @@ public class DateFormatFunction implements Function<Date, String>
     @Override
     public String apply(Date input)
     {
-        return new SimpleDateFormat("dd/mm/yyyy").format(input);
+        return new SimpleDateFormat("yyyy/mm/dd").format(input);
     }
 }
